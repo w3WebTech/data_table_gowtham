@@ -79,7 +79,7 @@ devDependencies:
     version: 3.0.7
   '@iconify/utils':
     specifier: ^2.1.11
-    version: 2.1.26
+    version: 2.1.29
   '@iconify/vue':
     specifier: 4.1.1
     version: 4.1.1(vue@3.3.13)
@@ -2465,7 +2465,7 @@ packages:
     resolution: {integrity: sha512-DxfhFLMnooS34dHelpGUnnYrxLZHs0czC1CgrBhAbuL8ddVzBb2VEQm8kh9qGh7A34qeXAB5iSHH3A72rAaFrg==}
     dependencies:
       '@iconify/types': 2.0.0
-      '@iconify/utils': 2.1.26
+      '@iconify/utils': 2.1.29
       '@types/cheerio': 0.22.35
       '@types/tar': 6.1.13
       cheerio: 1.0.0-rc.12
@@ -2481,8 +2481,8 @@ packages:
   /@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
 
-  /@iconify/utils@2.1.26:
-    resolution: {integrity: sha512-HjHnlVvUFZmEYMQxnRMbTcRC0iCcClrmbdRB9ZUgdpCoSVJ0kUgfgF0UKHR1rIlIbvLpxTVsAfH2UWFxaJeTtQ==}
+  /@iconify/utils@2.1.29:
+    resolution: {integrity: sha512-wCcTsmlJvTi1VWBgcJ7HeuWlh7gLGWY7L9HmbgMfjOfsoo7DADemB2Nqnrw1KvCdEAxLL5wTMBAOP5BesFrtng==}
     dependencies:
       '@antfu/install-pkg': 0.1.1
       '@antfu/utils': 0.7.10
