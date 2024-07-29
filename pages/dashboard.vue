@@ -39,7 +39,7 @@ import AnalyticsWeeklyOverview from '@/views/dashboard/AnalyticsWeeklyOverview.v
           cols="12"
           md="15"
         >
-          <AnalyticsWeeklyOverview />
+          <!-- <AnalyticsWeeklyOverview /> -->
         </VCol>
       </VRow>
     </VCol>
