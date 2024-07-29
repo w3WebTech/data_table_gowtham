@@ -64,7 +64,12 @@
         <!-- Display data table -->
       <v-row>
         <v-col cols="12">
-          <v-data-table :headers="tableHeaders" :items="filteredDesserts" item-key="clientId">
+          <v-data-table
+          :headers="tableHeaders"
+          :items="filteredDesserts"
+          item-key="clientId"
+          @update:modelValue="handleUpdateModelValue"
+        >
             <template v-slot:item="props">
               <tr>
                 <td v-if="columnVisibility.clientId"><p class="text-black">{{ props.item.clientId }}</p></td>
@@ -106,19 +111,22 @@
 import { computed, ref } from 'vue';
 
 const search = ref('');
-const headers = [
-  { key: 'clientId', title: 'Client Code' },
-  { key: 'stockSymbol', title: 'Stock' },
-  { key: 'buySellType', title: 'Type' },
-  { key: 'quantity', title: 'Quantity' },
-  { key: 'date', title: 'Date' },
-  {key:'plan', title:'Plan'},
-  { key: 'orderView', title: 'Order-View' },
-];
 const startDate = ref(new Date().toISOString().substr(0, 10)); // Set start date to current date
 const endDate = ref('');
+const isOpen = ref(false);
+const sheet = ref(false);
+const selectedItem = ref(null);
+const columnVisibility = ref({
+  clientId: true,
+  stockSymbol: true,
+  buySellType: true,
+  quantity: true,
+  date: true,
+  plan: true,
+  view_user: true
+});
 
-const { pendingg, error, data: productdetails } = await useFetch('https://g1.gwcindia.in/powerstocks/powerstocks.json')
+const { pendingg, error, data: productdetails } = await useFetch('https://g1.gwcindia.in/powerstocks/powerstocks.json');
 
 const filteredDesserts = computed(() => {
   const query = search.value.toLowerCase();
@@ -145,8 +153,9 @@ const filteredDesserts = computed(() => {
   });
 });
 
-const sheet = ref(false);
-const selectedItem = ref(null);
+const handleUpdateModelValue = (event) => {
+  selectedItem.value = event;
+};
 
 const canvasheet = (item) => {
   selectedItem.value = item;
@@ -185,23 +194,8 @@ const exportDataToCsv = () => {
   document.body.removeChild(link);
 };
 
-const isOpen = ref(false);
-const columnVisibility = ref({
-  clientId: true,
-  stockSymbol: true,
-  buySellType: true,
-  quantity: true,
-  date: true,
-  plan: true,
-  view_user: true
-});
-
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value;
-};
-
-const toggleColumnVisibility = (column) => {
-  columnVisibility.value[column] = !columnVisibility.value[column];
 };
 
 const tableHeaders = headers.map(header => ({
@@ -212,10 +206,10 @@ const tableHeaders = headers.map(header => ({
   align: 'start',
   class: 'cursor-pointer',
   width: 'auto',
-  'data-id': header.key,
-  click: () => toggleColumnVisibility(header.key)
+  'data-id': header.key
 }));
 </script>
+
 
 <style scoped>
 .text-black {
