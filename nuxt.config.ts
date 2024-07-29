@@ -99,7 +99,7 @@ export default defineNuxtConfig({
 
   vite: {
     define: { 'process.env': {} },
-
+  
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('.', import.meta.url)),
@@ -110,21 +110,19 @@ export default defineNuxtConfig({
         '@configured-variables': fileURLToPath(new URL('./assets/styles/variables/_template.scss', import.meta.url)),
       },
     },
-
-    vite: {
-      build: {
-        outDir: 'dist', // Specify output directory here
-        chunkSizeWarningLimit: 5000,
-      },
-      // ... other vite configurations
+  
+    build: {
+      outDir: 'dist', // Specify output directory here
+      chunkSizeWarningLimit: 5000,
     },
+  
     optimizeDeps: {
       exclude: ['vuetify'],
       entries: [
         './**/*.vue',
       ],
     },
-
+  
     plugins: [
       svgLoader(),
       vuetify({
@@ -132,7 +130,6 @@ export default defineNuxtConfig({
           configFile: 'assets/styles/variables/_vuetify.scss',
         },
       }),
-      null,
     ],
   },
 
