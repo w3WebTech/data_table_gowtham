@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'node-server'
   },
+  
   app: {
     head: {
       titleTemplate: '%s - NuxtJS Admin Template',
@@ -17,6 +18,7 @@ export default defineNuxtConfig({
         type: 'image/x-icon',
         href: '/favicon.ico',
       },
+      
       {
         rel: 'stylesheet',
         href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css',
@@ -50,6 +52,7 @@ export default defineNuxtConfig({
       path: '~/components',
       pathPrefix: false,
     }],
+    
   },
 
   plugins: ['@/plugins/vuetify/index.ts', '@/plugins/iconify/index.ts'],
