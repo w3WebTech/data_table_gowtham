@@ -111,10 +111,13 @@ export default defineNuxtConfig({
       },
     },
 
-    build: {
-      chunkSizeWarningLimit: 5000,
+    vite: {
+      build: {
+        outDir: 'dist', // Specify output directory here
+        chunkSizeWarningLimit: 5000,
+      },
+      // ... other vite configurations
     },
-
     optimizeDeps: {
       exclude: ['vuetify'],
       entries: [
