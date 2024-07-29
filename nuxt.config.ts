@@ -96,10 +96,9 @@ export default defineNuxtConfig({
       isCustomElement: tag => tag === 'swiper-container' || tag === 'swiper-slide',
     },
   },
-
   vite: {
     define: { 'process.env': {} },
-  
+
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('.', import.meta.url)),
@@ -108,28 +107,30 @@ export default defineNuxtConfig({
         '@images': fileURLToPath(new URL('./assets/images/', import.meta.url)),
         '@styles': fileURLToPath(new URL('./assets/styles/', import.meta.url)),
         '@configured-variables': fileURLToPath(new URL('./assets/styles/variables/_template.scss', import.meta.url)),
+        '@store':  fileURLToPath(new URL('./store', import.meta.url)),
       },
     },
-  
+
     build: {
-      outDir: 'dist', // Specify output directory here
       chunkSizeWarningLimit: 5000,
     },
-  
+
     optimizeDeps: {
       exclude: ['vuetify'],
       entries: [
         './**/*.vue',
       ],
     },
-  
+
     plugins: [
+      
       svgLoader(),
       vuetify({
         styles: {
           configFile: 'assets/styles/variables/_vuetify.scss',
         },
       }),
+   
     ],
   },
 

@@ -1,15 +1,7 @@
 {
+  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "target": "ES6",
-    "module": "ESNext",
-    "strict": true,
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "moduleResolution": "node",
+    // other options...
   },
-  "exclude": [
-    "node_modules",
-    ".nuxt"
-  ]
 }
